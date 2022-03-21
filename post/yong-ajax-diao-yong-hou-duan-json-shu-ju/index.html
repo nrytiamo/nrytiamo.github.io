@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>用Ajax调用后端json数据 | suntblog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://nrytiamo.github.io//favicon.ico?v=1647842980425">
+<link rel="stylesheet" href="https://nrytiamo.github.io//styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="✍️ajax get()
+
+先导入jQuery
+ajax get()函数
+
+$.get(url,data,success(response,status,xhr),dataType)
+
+url：必需。规定将请求发送的哪个 URL。
+data..." />
+    <meta name="keywords" content="ajax" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://nrytiamo.github.io/">
+        <img src="https://nrytiamo.github.io//images/avatar.png?v=1647842980425" class="site-logo">
+        <h1 class="site-title">suntblog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      别再emo，让我肩膀做你枕头
+    </div>
+    <div class="site-footer">
+      另一个博客站  <a href="http://suntblog.gitee.io/" target="_blank">Suntblog</a> | <a class="rss" href="https://nrytiamo.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">用Ajax调用后端json数据</h2>
+            <div class="post-date">2021-12-08</div>
+            
+              <div class="feature-container" style="background-image: url('https://nrytiamo.github.io//post-images/yong-ajax-diao-yong-hou-duan-json-shu-ju.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>✍️ajax get()</p>
+<!-- more -->
+<p><strong>先导入jQuery</strong><br>
+<strong>ajax</strong> get()函数</p>
+<ul>
+<li>$.get(url,data,success(response,status,xhr),dataType)
+<ol>
+<li>url：必需。规定将请求发送的哪个 URL。</li>
+<li>data：可选。规定连同请求发送到服务器的数据，这里就是json文件</li>
+<li>success(response,status,xhr)：可选。规定当请求成功时运行的函数。</li>
+</ol>
+</li>
+<li>代码：<br>
+$.ajax({<br>
+type:&quot;get&quot;,<br>
+url:&quot;/test&quot;,<br>
+dataType:&quot;json&quot;,<br>
+success:function (data)<br>
+'</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://nrytiamo.github.io/tag/QqP8k1rsE/" class="tag">
+                    ajax
+                  </a>
+                
+              </div>
+            
+            
+
+            
+              
+
+              
+                <div id="disqus_thread" data-aos="fade-in"></div>
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'suntblog',
+      apikey: 'i4yuneYuzoNysCxoE7jbClCaNCtfJKMBZUgp26U5DLlJJKDECfktkdyMxb4AqjXq',
+    }
+    if ('https://disqus.com/api/oauth/2.0/authorize/') {
+      options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>
