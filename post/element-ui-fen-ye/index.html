@@ -8,14 +8,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://nrytiamo.github.io//favicon.ico?v=1647913304241">
+<link rel="shortcut icon" href="https://nrytiamo.github.io//favicon.ico?v=1647914623960">
 <link rel="stylesheet" href="https://nrytiamo.github.io//styles/main.css">
 
 
   
-
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
   
-    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+
   
 
 
@@ -37,7 +37,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://nrytiamo.github.io/">
-        <img src="https://nrytiamo.github.io//images/avatar.png?v=1647913304241" class="site-logo">
+        <img src="https://nrytiamo.github.io//images/avatar.png?v=1647914623960" class="site-logo">
         <h1 class="site-title">suntblog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -131,9 +131,9 @@
 
             
               
-
+                <div id="gitalk-container" data-aos="fade-in"></div>
               
-                <div id="disqus_thread" data-aos="fade-in"></div>
+
               
             
 
@@ -162,21 +162,24 @@ var app = new Vue({
 
 
   
-
-  
-    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
 
-    var options = {
-      shortname: 'suntblog',
-      apikey: 'i4yuneYuzoNysCxoE7jbClCaNCtfJKMBZUgp26U5DLlJJKDECfktkdyMxb4AqjXq',
-    }
-    if ('https://disqus.com/api/oauth/2.0/authorize/') {
-      options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
-    }
-    var dsqjs = new DisqusJS(options)
+      var gitalk = new Gitalk({
+        clientID: 'c2e5944e86de9d546a45',
+        clientSecret: 'a2ddc7e62251ae49105a084b6121aa18234776c7',
+        repo: 'nrytiamo.github.io',
+        owner: 'sunt',
+        admin: ['sunt'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
 
     </script>
+  
+
   
 
 
