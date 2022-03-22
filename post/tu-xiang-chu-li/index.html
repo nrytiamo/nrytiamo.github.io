@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://nrytiamo.github.io//favicon.ico?v=1647917520852">
+<link rel="shortcut icon" href="https://nrytiamo.github.io//favicon.ico?v=1647955531027">
 <link rel="stylesheet" href="https://nrytiamo.github.io//styles/main.css">
 
 
@@ -50,7 +50,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://nrytiamo.github.io/">
-        <img src="https://nrytiamo.github.io//images/avatar.png?v=1647917520852" class="site-logo">
+        <img src="https://nrytiamo.github.io//images/avatar.png?v=1647955531027" class="site-logo">
         <h1 class="site-title">suntblog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -134,6 +134,35 @@
 <ul>
 <li>常见的库：opencv3.4 / keras / caffe(优化配置文件) / PyTorch / Tensorflow / Tensorflow-gpu(可利用gpu的高并发)  / Tensorboard(训练过程可视化)</li>
 </ul>
+<h1 id="颜色空间">颜色空间</h1>
+<ul>
+<li>图片除长宽还有通道，比如红绿蓝</li>
+<li>单通道灰度图 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mi>r</mi><mi>a</mi><mi>y</mi><mo>=</mo><mi>R</mi><mo>∗</mo><mn>0.3</mn><mo>+</mo><mi>G</mi><mo>∗</mo><mn>0.59</mn><mo>+</mo><mi>B</mi><mo>∗</mo><mn>0.11</mn></mrow><annotation encoding="application/x-tex">Gray=R\ast0.3+ G\ast0.59+B\ast0.11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">G</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span><span class="mord">1</span></span></span></span></li>
+</ul>
+<p>#图像处理</p>
+<ol>
+<li>空间域处理</li>
+</ol>
+<h1 id="1-点运算">1. 点运算</h1>
+<pre><code>    * 直方图：对数据空间进行量化，均衡化，还可以自适应直方图均衡（AHE）
+    * CLAHE算法
+        * 通过面积的变化，使图像对比度变高 
+        * 步骤                                            
+            *  图像分块，以块为单位
+            *  先计算直方图，然后修剪直方图，最后均衡
+            *  遍历操作各个图像块，进行块间双线性插值
+            *  与原图做图层滤色混合操作（可选）  
+2. 形态学运算
+3. 临域运算
+</code></pre>
+<ol start="2">
+<li>频率域处理
+<ol>
+<li>傅里叶变换</li>
+<li>小波变换</li>
+</ol>
+</li>
+</ol>
 
             </div>
             
