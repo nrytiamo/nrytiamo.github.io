@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nrytiamo.github.io/</id>
     <title>suntblog</title>
-    <updated>2022-03-23T09:04:53.196Z</updated>
+    <updated>2022-03-24T09:40:50.797Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nrytiamo.github.io/"/>
     <link rel="self" href="https://nrytiamo.github.io/atom.xml"/>
@@ -20,7 +20,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[图像   处理 ]]></title>
+        <title type="html"><![CDATA[图像处理 ]]></title>
         <id>https://nrytiamo.github.io/post/tu-xiang-chu-li/</id>
         <link href="https://nrytiamo.github.io/post/tu-xiang-chu-li/">
         </link>
@@ -69,13 +69,129 @@
 </li>
 </ul>
 </li>
+<li>邻域运算（空间域处理）
+<ul>
+<li>滤波/卷积 （公式）
+<ul>
+<li>边界填充：获得同尺寸输出的情况下，卷积核越大，补充越多</li>
+<li>补充类型
+<ul>
+<li>补零</li>
+<li>边界复制</li>
+<li>镜像</li>
+<li>块复制</li>
+</ul>
+</li>
+<li>平滑高斯滤波 （人眼特性）（图像模糊化）（构建高斯金字塔）
+<ul>
+<li>分解特性 ：将2D卷积拆分成1D卷积，就是列卷积和行卷积。减少计算次数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>频域分析及变换
+<ul>
+<li>让卷积更快，把空域卷积变为频域卷积</li>
+<li>图像缩放（高斯金字塔）
+<ul>
+<li>先进行图像平滑，再进行降采样</li>
+<li>根据降采样，得到一系列尺寸逐渐减小的图像</li>
+<li>操作：n次(高斯卷积——2倍降采样)——n层金字塔</li>
+<li>目的：捕捉不同尺寸的物体</li>
+</ul>
+</li>
+<li>拉普拉斯金字塔（图片恢复）
+<ul>
+<li>上采样，一层一层变大</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>形态学运算</li>
-<li>临域运算</li>
 <li>频率域处理
 <ol>
-<li>傅里叶变换</li>
-<li>小波变换</li>
+<li>傅里叶变换
+<ul>
+<li>一个信号可以由足够多个不同频率和幅值的正余弦波组成</li>
+<li>不足：频率会变，实际项目中信号不是平稳的</li>
+<li>通过宽，窄窗口调整</li>
+</ul>
+</li>
+<li>小波变换
+<ul>
+<li>小波变换直接把傅里叶变换的基给换了——将无限长的三角函数基换成了有限长的会衰减的小波基，这样能够获取频率，还可以定位时间</li>
+</ul>
+</li>
+<li>小波函数</li>
 </ol>
+</li>
+</ol>
+<h1 id="图像特征与描述">图像特征与描述</h1>
+<ul>
+<li><a href="#1-%E9%A2%9C%E8%89%B2%E7%89%B9%E5%BE%81">颜色特征</a></li>
+<li><a href="#2-%E5%87%A0%E4%BD%95%E7%89%B9%E5%BE%81">几何特征</a></li>
+<li><a href="#3-%E5%9F%BA%E4%BA%8E%E7%89%B9%E5%BE%81%E7%82%B9%E7%9A%84%E7%89%B9%E5%BE%81%E6%8F%8F%E8%BF%B0">基于关键点的特征</a></li>
+<li><a href="#4-%E5%B1%80%E9%83%A8%E7%89%B9%E5%BE%81-sifi">其他特征提取</a></li>
+<li>代码实践</li>
+</ul>
+<h1 id="1-颜色特征">1. 颜色特征</h1>
+<ul>
+<li>量化颜色直方图</li>
+<li>聚类颜色直方图</li>
+</ul>
+<h1 id="2-几何特征">2. 几何特征</h1>
+<ul>
+<li>边缘：一阶导取得极值的地方</li>
+<li>边缘提取：1. 先高斯平滑去噪 2. 再使用一阶导取极值</li>
+<li>两个方向求导，获得斜的边缘（梯度）</li>
+</ul>
+<h1 id="3-基于特征点的特征描述">3. 基于特征点的特征描述</h1>
+<ul>
+<li>Harris角点：观察窗在任何方向上移动，导致大的像素变动</li>
+<li>Fast角点检测</li>
+<li>斑点</li>
+<li>拉普拉斯梯度：二阶导为0</li>
+<li>斑点：二阶导极值点</li>
+</ul>
+<h1 id="4-局部特征-sifi">4. 局部特征 SIFI</h1>
+<ul>
+<li>基于尺度空间不变的特征
+<ul>
+<li>特点
+<ul>
+<li>具有良好的不变性</li>
+<li>独特性好，信息量丰富</li>
+<li>多量性</li>
+</ul>
+</li>
+<li>SIFI特征计算步骤
+<ol>
+<li>在DoG尺度空间中获取极值点，即关键点
+<ul>
+<li>用高斯差分（用清楚图片减模糊等于边缘）代替拉普拉斯差分</li>
+</ul>
+</li>
+<li>对关键点处理（位置插值——获取精确关键点）（去除边缘点）</li>
+<li>关键点的方向估计（解决旋转不变性）</li>
+<li>关键点描述子的生词
+<ul>
+<li>区域坐标旋转</li>
+<li>计算采样区域直方图</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>局部特征 SURF
+<ul>
+<li>把高斯二阶微分进行简化，使卷积平滑操作转为加减运算</li>
+<li>在方向确定，在圆形区域计算x,y方向haar小波响应，找到模最大的扇形方向</li>
+</ul>
 </li>
 </ol>
 ]]></content>
