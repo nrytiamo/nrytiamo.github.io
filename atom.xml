@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nrytiamo.github.io/</id>
     <title>suntblog</title>
-    <updated>2022-03-24T09:40:50.797Z</updated>
+    <updated>2022-03-27T10:34:11.113Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nrytiamo.github.io/"/>
     <link rel="self" href="https://nrytiamo.github.io/atom.xml"/>
@@ -11,12 +11,58 @@
     <icon>https://nrytiamo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, suntblog</rights>
     <entry>
+        <title type="html"><![CDATA[双系统安装教程]]></title>
+        <id>https://nrytiamo.github.io/post/shuang-xi-tong-an-zhuang-jiao-cheng/</id>
+        <link href="https://nrytiamo.github.io/post/shuang-xi-tong-an-zhuang-jiao-cheng/">
+        </link>
+        <updated>2022-03-27T10:32:52.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>微pe装win系统</li>
+</ol>
+<ul>
+<li>先下载微pe工具箱</li>
+<li>下载win镜像</li>
+<li>把工具箱装进u盘，镜像放入u盘</li>
+<li>进入BIOS启动，选择u盘启动，进行安装pe系统，先分区，安装win系统</li>
+<li>安装完成后，弹出U盘，重新启动，进入BIOS界面选择win系统启动</li>
+</ul>
+<ol start="2">
+<li>乌班图20版本安装</li>
+</ol>
+<ul>
+<li>下载乌班图镜像</li>
+<li>查看电脑BIOS方式</li>
+<li>用ultralso软件制作启动盘</li>
+<li>在win系统下分配乌班图空间</li>
+<li>进入BIOS界面启动乌班图</li>
+<li>开始安装，如果选择正常安装太慢就退出，进入系统界面，再次用桌面安装工具安装</li>
+<li><a href="https://blog.csdn.net/weixin_43887661/article/details/106738589">设置系统分区</a></li>
+<li>安装完成后，拔出u盘，重新启动，启动时进入BIOS界面，选择乌班图系统启动</li>
+<li>下次再进入界面时，就有双系统引导卡了</li>
+<li><a href="https://blog.csdn.net/weixin_42301220/article/details/113867966">参考链接</a></li>
+</ul>
+<ol start="3">
+<li>台式电脑通过无线网卡，连接WiFi上网，要注意网卡型号和驱动</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[vasp安装 MS安装]]></title>
         <id>https://nrytiamo.github.io/post/test/</id>
         <link href="https://nrytiamo.github.io/post/test/">
         </link>
         <updated>2022-03-21T03:04:45.000Z</updated>
-        <content type="html"><![CDATA[<p>11</p>
+        <content type="html"><![CDATA[<ol>
+<li>vm虚拟机安装，报错ssl，不一定是VC库问题，可以从官网重新下载，用密钥破解</li>
+<li>vasp安装，照步骤安装，要注意</li>
+</ol>
+<ul>
+<li>需要的包有intel make vasp</li>
+<li>intel编译器，可能会报缺少gcc这些，要先安装</li>
+<li>如果发现没有生成文件，生成的可能是隐藏文件 Ctrl＋H＋.  显示隐藏文件</li>
+<li><a href="https://mp.weixin.qq.com/s/jC49ML6JxtAhkp4PFmtZ4w">vasp安装参考链接</a></li>
+<li><a href="https://blog.csdn.net/schumacher2016/article/details/89587705">gcc安装参考链接</a></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
