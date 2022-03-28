@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://nrytiamo.github.io//favicon.ico?v=1648456122392">
+<link rel="shortcut icon" href="https://nrytiamo.github.io//favicon.ico?v=1648465846598">
 <link rel="stylesheet" href="https://nrytiamo.github.io//styles/main.css">
 
 
@@ -27,9 +27,10 @@
     <meta name="description" content="图像分割
 传统数字图像分割算法一般基于灰度值的两个基本特性之一：不连续性和连续性
 1. 基于阈值的分割方法
-    根据直方图计算，图像中每个像素的灰度值与阈值相比较
+根据直方图计算，图像中每个像素的灰度值与阈值相比较
 2. 基于边缘的分割方法
-    边缘，图中两个不同区域边界线上连续的像..." />
+边缘，图中两个不同区域边界线上连续的像素点的集合
+3...." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -39,7 +40,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://nrytiamo.github.io/">
-        <img src="https://nrytiamo.github.io//images/avatar.png?v=1648456122392" class="site-logo">
+        <img src="https://nrytiamo.github.io//images/avatar.png?v=1648465846598" class="site-logo">
         <h1 class="site-title">suntblog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -106,23 +107,22 @@
             
             <div class="post-content" v-pre>
               <h1 id="图像分割">图像分割</h1>
-<pre><code>传统数字图像分割算法一般基于灰度值的两个基本特性之一：不连续性和连续性
-1. 基于阈值的分割方法
-    根据直方图计算，图像中每个像素的灰度值与阈值相比较
-2. 基于边缘的分割方法
-    边缘，图中两个不同区域边界线上连续的像素点的集合
-3. 基于区域的分割方法
-    区域生长
-    分水岭算法
-4. 基于图论的分割方法
-    Graph Cuts 基于图论的分割方法
-    - 图片上相邻像素点形成第一种边
-    - 假设图片外有两个点，一个叫S 代表前景  一个叫T 代表背景
-    - 图片上每个点都会和这两个点相连，组成第二种边
-    - ![](https://nrytiamo.github.io//post-images/1648455297285.png)
-    - 找一个分割，分割会切断第一类边，也会切断第二类边，找权重最小的边
-    - 先取两个种子点，然后我们建立一个图，图中边的粗细表示对应权值的大小，然后找到权值和最小的边组合，完成图像分割的功能
-</code></pre>
+<p>传统数字图像分割算法一般基于灰度值的两个基本特性之一：不连续性和连续性<br>
+1. 基于阈值的分割方法<br>
+根据直方图计算，图像中每个像素的灰度值与阈值相比较<br>
+2. 基于边缘的分割方法<br>
+边缘，图中两个不同区域边界线上连续的像素点的集合<br>
+3. 基于区域的分割方法<br>
+区域生长<br>
+分水岭算法<br>
+4. 基于图论的分割方法<br>
+Graph Cuts 基于图论的分割方法<br>
+- 图片上相邻像素点形成第一种边<br>
+- 假设图片外有两个点，一个叫S 代表前景  一个叫T 代表背景<br>
+- 图片上每个点都会和这两个点相连，组成第二种边<br>
+- <img src="https://nrytiamo.github.io//post-images/1648455297285.png" alt="图论" loading="lazy"><br>
+- 找一个分割，分割会切断第一类边，也会切断第二类边，找权重最小的边<br>
+- 先取两个种子点，然后我们建立一个图，图中边的粗细表示对应权值的大小，然后找到权值和最小的边组合，完成图像分割的功能</p>
 <h1 id="人脸检测">人脸检测</h1>
 <h1 id="行人检测">行人检测</h1>
 

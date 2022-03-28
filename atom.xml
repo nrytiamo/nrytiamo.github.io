@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nrytiamo.github.io/</id>
     <title>suntblog</title>
-    <updated>2022-03-28T08:28:50.711Z</updated>
+    <updated>2022-03-28T11:11:43.982Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nrytiamo.github.io/"/>
     <link rel="self" href="https://nrytiamo.github.io/atom.xml"/>
@@ -17,23 +17,22 @@
         </link>
         <updated>2022-03-28T07:35:44.000Z</updated>
         <content type="html"><![CDATA[<h1 id="图像分割">图像分割</h1>
-<pre><code>传统数字图像分割算法一般基于灰度值的两个基本特性之一：不连续性和连续性
-1. 基于阈值的分割方法
-    根据直方图计算，图像中每个像素的灰度值与阈值相比较
-2. 基于边缘的分割方法
-    边缘，图中两个不同区域边界线上连续的像素点的集合
-3. 基于区域的分割方法
-    区域生长
-    分水岭算法
-4. 基于图论的分割方法
-    Graph Cuts 基于图论的分割方法
-    - 图片上相邻像素点形成第一种边
-    - 假设图片外有两个点，一个叫S 代表前景  一个叫T 代表背景
-    - 图片上每个点都会和这两个点相连，组成第二种边
-    - ![](https://nrytiamo.github.io//post-images/1648455297285.png)
-    - 找一个分割，分割会切断第一类边，也会切断第二类边，找权重最小的边
-    - 先取两个种子点，然后我们建立一个图，图中边的粗细表示对应权值的大小，然后找到权值和最小的边组合，完成图像分割的功能
-</code></pre>
+<p>传统数字图像分割算法一般基于灰度值的两个基本特性之一：不连续性和连续性<br>
+1. 基于阈值的分割方法<br>
+根据直方图计算，图像中每个像素的灰度值与阈值相比较<br>
+2. 基于边缘的分割方法<br>
+边缘，图中两个不同区域边界线上连续的像素点的集合<br>
+3. 基于区域的分割方法<br>
+区域生长<br>
+分水岭算法<br>
+4. 基于图论的分割方法<br>
+Graph Cuts 基于图论的分割方法<br>
+- 图片上相邻像素点形成第一种边<br>
+- 假设图片外有两个点，一个叫S 代表前景  一个叫T 代表背景<br>
+- 图片上每个点都会和这两个点相连，组成第二种边<br>
+- <img src="https://nrytiamo.github.io//post-images/1648455297285.png" alt="图论" loading="lazy"><br>
+- 找一个分割，分割会切断第一类边，也会切断第二类边，找权重最小的边<br>
+- 先取两个种子点，然后我们建立一个图，图中边的粗细表示对应权值的大小，然后找到权值和最小的边组合，完成图像分割的功能</p>
 <h1 id="人脸检测">人脸检测</h1>
 <h1 id="行人检测">行人检测</h1>
 ]]></content>
@@ -332,16 +331,16 @@
         </link>
         <updated>2022-03-11T10:27:49.000Z</updated>
         <content type="html"><![CDATA[<h1 id="登录界面">登录界面</h1>
-<figure data-type="image" tabindex="1"><img src="https://nrytiamo.github.io//post-images/1647000271856.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://nrytiamo.github.io//post-images/1647000271856.png" alt="登录" loading="lazy"></figure>
 <h1 id="首页">首页</h1>
 <ol>
 <li><strong>顶部菜单栏</strong></li>
 <li><strong>首页卡片</strong><br>
-<img src="https://nrytiamo.github.io//post-images/1647000397561.png" alt="" loading="lazy"></li>
+<img src="https://nrytiamo.github.io//post-images/1647000397561.png" alt="首页" loading="lazy"></li>
 </ol>
 <h1 id="侧边栏">侧边栏</h1>
 <p><strong>左侧是二级菜单栏，中间是主体部分</strong><br>
-<img src="https://nrytiamo.github.io//post-images/1647000305771.png" alt="" loading="lazy"></p>
+<img src="https://nrytiamo.github.io//post-images/1647000305771.png" alt="侧边栏" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
