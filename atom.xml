@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nrytiamo.github.io/</id>
     <title>suntblog</title>
-    <updated>2022-03-28T11:11:43.982Z</updated>
+    <updated>2022-03-30T06:46:47.240Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nrytiamo.github.io/"/>
     <link rel="self" href="https://nrytiamo.github.io/atom.xml"/>
@@ -10,6 +10,73 @@
     <logo>https://nrytiamo.github.io/images/avatar.png</logo>
     <icon>https://nrytiamo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, suntblog</rights>
+    <entry>
+        <title type="html"><![CDATA[神经网络与BP算法]]></title>
+        <id>https://nrytiamo.github.io/post/shen-jing-wang-luo-yu-bp-suan-fa/</id>
+        <link href="https://nrytiamo.github.io/post/shen-jing-wang-luo-yu-bp-suan-fa/">
+        </link>
+        <updated>2022-03-29T12:01:11.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="神经网络">神经网络</h2>
+<ol>
+<li>作用：分类，模式识别，连续值预测</li>
+<li>建立（强行）输入与输出的映射关系，只要是有规律的</li>
+<li>每一个输入有权重，进行混合（混合时是线性组合），混合达到阈值，可能是个非线性的映射，最后有一个输出</li>
+<li>激活函数（用来映射）（sigmoid）</li>
+<li>神经网络层的理解</li>
+<li>前馈神经网络（无反馈，有向无环图）</li>
+<li>Delta学习规则（输入输出不变，变的是权重</li>
+</ol>
+<p>##前馈神经网络</p>
+<ol>
+<li>目标函数  （各输出误差的平方的累加。目标函数最好为0，目标函数是关于权重的函数）</li>
+<li>梯度下降
+<ul>
+<li>是一种迭代过程，梯度相反的方向</li>
+<li>计算梯度方向，沿梯度方向下降，学习速率，一直迭代直到目标函数不断下降，目标函数处处可导</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">w</mi><mo>(</mo><mi>m</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi mathvariant="bold">w</mi><mo>(</mo><mi>m</mi><mo>)</mo><mo>+</mo><mi mathvariant="normal">Δ</mi><mi mathvariant="bold">w</mi><mo>(</mo><mi>m</mi><mo>)</mo><mo>=</mo><mi mathvariant="bold">w</mi><mo>(</mo><mi>m</mi><mo>)</mo><mo>−</mo><mi>η</mi><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi></mrow><mrow><mi mathvariant="normal">∂</mi><mi mathvariant="bold">w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\mathbf{w}(m+1)=\mathbf{w}(m)+\Delta \mathbf{w}(m)=\mathbf{w}(m)-\eta \frac{\partial J}{\partial \mathbf{w}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">w</span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">w</span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">w</span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">w</span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight" style="margin-right:0.05556em;">∂</span><span class="mord mtight"><span class="mord mathbf mtight" style="margin-right:0.01597em;">w</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault mtight" style="margin-right:0.09618em;">J</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li>误差传播迭代公式
+<ul>
+<li>输出层</li>
+<li>隐含层</li>
+<li><img src="https://nrytiamo.github.io//post-images/1648621259027.png" alt="简单的BP算例" loading="lazy"></li>
+<li><img src="https://nrytiamo.github.io//post-images/1648621397553.png" alt="简单的BP算例2" loading="lazy"></li>
+<li><img src="https://nrytiamo.github.io//post-images/1648621502040.png" alt="简单的BP算例3" loading="lazy"></li>
+<li>当样本不止一个时，采用批量梯度下降，随机梯度下降</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>深度学习通过算法，来解决机器学习特征提取的不足</li>
+<li>深度学习
+<ol>
+<li>一种基于无监督特征学习和特征层次结构的学习模型，其实是对神经网络模型的拓展</li>
+<li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">端到端的学习</th>
+<th style="text-align:center">高纬度和大数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">输入原始数据，输出任何你想要的</td>
+<td style="text-align:center">高纬度的权重参数</td>
+</tr>
+<tr>
+<td style="text-align:center">利用算法自动提取的特征进行学习</td>
+<td style="text-align:center">海量的训练数据</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>https://github.com/hunkim/DeepLearningZeroToAll/<br>
+https://blog.csdn.net/u010089444/article/details/76725843</li>
+</ol>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[计算机视觉]]></title>
         <id>https://nrytiamo.github.io/post/ji-suan-ji-shi-jue/</id>
@@ -33,7 +100,8 @@ Graph Cuts 基于图论的分割方法<br>
 - <img src="https://nrytiamo.github.io//post-images/1648455297285.png" alt="图论" loading="lazy"><br>
 - 找一个分割，分割会切断第一类边，也会切断第二类边，找权重最小的边<br>
 - 先取两个种子点，然后我们建立一个图，图中边的粗细表示对应权值的大小，然后找到权值和最小的边组合，完成图像分割的功能</p>
-<h1 id="人脸检测">人脸检测</h1>
+<h1 id="人脸检测检测人脸并未识别">人脸检测（检测人脸，并未识别）</h1>
+<p>Haar-like特征</p>
 <h1 id="行人检测">行人检测</h1>
 ]]></content>
     </entry>

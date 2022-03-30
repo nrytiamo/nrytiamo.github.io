@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>神经网络与BP算法 | suntblog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://nrytiamo.github.io//favicon.ico?v=1648622801359">
+<link rel="stylesheet" href="https://nrytiamo.github.io//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="神经网络
+
+作用：分类，模式识别，连续值预测
+建立（强行）输入与输出的映射关系，只要是有规律的
+每一个输入有权重，进行混合（混合时是线性组合），混合达到阈值，可能是个非线性的映射，最后有一个输出
+激活函数（用来映射）（sigmoid）
+神经..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://nrytiamo.github.io/">
+        <img src="https://nrytiamo.github.io//images/avatar.png?v=1648622801359" class="site-logo">
+        <h1 class="site-title">suntblog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      别再emo，让我肩膀做你枕头
+    </div>
+    <div class="site-footer">
+      另一个博客站  <a href="http://suntblog.gitee.io/" target="_blank">Suntblog</a> | <a class="rss" href="https://nrytiamo.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">神经网络与BP算法</h2>
+            <div class="post-date">2022-03-29</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="神经网络">神经网络</h2>
+<ol>
+<li>作用：分类，模式识别，连续值预测</li>
+<li>建立（强行）输入与输出的映射关系，只要是有规律的</li>
+<li>每一个输入有权重，进行混合（混合时是线性组合），混合达到阈值，可能是个非线性的映射，最后有一个输出</li>
+<li>激活函数（用来映射）（sigmoid）</li>
+<li>神经网络层的理解</li>
+<li>前馈神经网络（无反馈，有向无环图）</li>
+<li>Delta学习规则（输入输出不变，变的是权重</li>
+</ol>
+<p>##前馈神经网络</p>
+<ol>
+<li>目标函数  （各输出误差的平方的累加。目标函数最好为0，目标函数是关于权重的函数）</li>
+<li>梯度下降
+<ul>
+<li>是一种迭代过程，梯度相反的方向</li>
+<li>计算梯度方向，沿梯度方向下降，学习速率，一直迭代直到目标函数不断下降，目标函数处处可导</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">w</mi><mo>(</mo><mi>m</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi mathvariant="bold">w</mi><mo>(</mo><mi>m</mi><mo>)</mo><mo>+</mo><mi mathvariant="normal">Δ</mi><mi mathvariant="bold">w</mi><mo>(</mo><mi>m</mi><mo>)</mo><mo>=</mo><mi mathvariant="bold">w</mi><mo>(</mo><mi>m</mi><mo>)</mo><mo>−</mo><mi>η</mi><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi></mrow><mrow><mi mathvariant="normal">∂</mi><mi mathvariant="bold">w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\mathbf{w}(m+1)=\mathbf{w}(m)+\Delta \mathbf{w}(m)=\mathbf{w}(m)-\eta \frac{\partial J}{\partial \mathbf{w}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">w</span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">w</span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">w</span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">w</span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight" style="margin-right:0.05556em;">∂</span><span class="mord mtight"><span class="mord mathbf mtight" style="margin-right:0.01597em;">w</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault mtight" style="margin-right:0.09618em;">J</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li>误差传播迭代公式
+<ul>
+<li>输出层</li>
+<li>隐含层</li>
+<li><img src="https://nrytiamo.github.io//post-images/1648621259027.png" alt="简单的BP算例" loading="lazy"></li>
+<li><img src="https://nrytiamo.github.io//post-images/1648621397553.png" alt="简单的BP算例2" loading="lazy"></li>
+<li><img src="https://nrytiamo.github.io//post-images/1648621502040.png" alt="简单的BP算例3" loading="lazy"></li>
+<li>当样本不止一个时，采用批量梯度下降，随机梯度下降</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>深度学习通过算法，来解决机器学习特征提取的不足</li>
+<li>深度学习
+<ol>
+<li>一种基于无监督特征学习和特征层次结构的学习模型，其实是对神经网络模型的拓展</li>
+<li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">端到端的学习</th>
+<th style="text-align:center">高纬度和大数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">输入原始数据，输出任何你想要的</td>
+<td style="text-align:center">高纬度的权重参数</td>
+</tr>
+<tr>
+<td style="text-align:center">利用算法自动提取的特征进行学习</td>
+<td style="text-align:center">海量的训练数据</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>https://github.com/hunkim/DeepLearningZeroToAll/<br>
+https://blog.csdn.net/u010089444/article/details/76725843</li>
+</ol>
+</li>
+</ol>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://nrytiamo.github.io/post/ji-suan-ji-shi-jue/">
+                  <h3 class="post-title">
+                    计算机视觉
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '28a795509a9bf3b76d9e',
+        clientSecret: 'ffdcf9b91bfb6b24e8765c4b838aea88879d3328',
+        repo: 'blog-comment',
+        owner: 'nrytiamo',
+        admin: ['nrytiamo'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
