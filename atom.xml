@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nrytiamo.github.io/</id>
     <title>suntblog</title>
-    <updated>2022-03-30T06:56:20.472Z</updated>
+    <updated>2022-03-30T06:56:56.276Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nrytiamo.github.io/"/>
     <link rel="self" href="https://nrytiamo.github.io/atom.xml"/>
@@ -26,7 +26,7 @@
 <li>前馈神经网络（无反馈，有向无环图）</li>
 <li>Delta学习规则（输入输出不变，变的是权重</li>
 </ol>
-<p>##前馈神经网络</p>
+<h2 id="前馈神经网络">前馈神经网络</h2>
 <ol>
 <li>目标函数  （各输出误差的平方的累加。目标函数最好为0，目标函数是关于权重的函数）</li>
 <li>梯度下降
