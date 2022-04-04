@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Flask序列化 | suntblog</title>
+<title>数学建模简介 | suntblog</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,17 +24,16 @@
 
 
 
-    <meta name="description" content="将数据库取出的对象转化为JSON格式
+    <meta name="description" content="
+数据预处理
 
 
-在model定义的时候给序列化的方法
-
-定义序列化函数，在该函数中返回字典的keys
-
-def users_schema(self):
-return {
-'id': self.id,
-'userna..." />
+缺失太多直接删除
+对精度不高，数量少可以用均值众数补
+对精度高，用牛顿插值法 (不适用于变化)
+要求光滑，用样条插值法 (机器人轨迹，零件加工，水库水流量)
+用正态分布(3δ原则)寻找异常值
+通过画箱型图(例如公交站排队)..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -106,57 +105,73 @@ return {
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Flask序列化</h2>
-            <div class="post-date">2021-12-08</div>
+            <h2 class="post-title">数学建模简介</h2>
+            <div class="post-date">2022-04-04</div>
             
             <div class="post-content" v-pre>
-              <p>将数据库取出的对象转化为JSON格式</p>
-<!-- more -->
+              <ol>
+<li>数据预处理</li>
+</ol>
 <ul>
-<li><strong>在model定义的时候给序列化的方法</strong>
+<li>缺失太多直接删除</li>
+<li>对精度不高，数量少可以用均值众数补</li>
+<li>对精度高，用牛顿插值法 (不适用于变化)</li>
+<li>要求光滑，用样条插值法 (机器人轨迹，零件加工，水库水流量)</li>
+<li>用正态分布(3δ原则)寻找异常值</li>
+<li>通过画箱型图(例如公交站排队)</li>
+</ul>
+<ol start="2">
+<li>建模过程</li>
+</ol>
 <ul>
-<li><strong><strong>定义序列化函数</strong>，<strong>在该函数中返回字典的keys</strong></strong>
+<li>包括摘要(最重要)，问题重述，模型假设和符号说明，模型建立与求解(最长)，模型的优缺点与改进方法，参考文献与附录</li>
+<li>摘要(最重要)
 <ul>
-<li>def users_schema(self):<br>
-return {<br>
-'id': self.id,<br>
-'username': self.username,<br>
-'password': self.password<br>
-}</li>
+<li>读者看完摘要，就知道论文研究的问题，用了什么方法，求得了什么结果，以及每一部分的大致步骤</li>
 </ul>
 </li>
-<li><strong>调用RESTful API以JSON格式返回数据库表中取得的数据</strong>
+<li>问题重述
 <ul>
-<li><a href="https://flask-restful.readthedocs.io/en/latest/">RESTful API中文文档</a></li>
-<li>class HelloWorld(Resource):<br>
-def get(self):<br>
-data = Test.query.first()<br>
-data_serialize = data.test_schema()<br>
-return jsonify(data_serialize)</li>
+<li>不可复制粘贴，用自己的话简述</li>
 </ul>
 </li>
+<li>模型假设和符号说明</li>
 </ul>
-</li>
-<li><strong>调用Flask-RESTful的 JSONEncoder类</strong>
+<ol start="3">
+<li>模型的建立</li>
+</ol>
 <ul>
-<li>采用<font color=RED>json.dumps()</font>来将取出的数据序列化成json字符串<br>
-class HelloWorld(Resource):<br>
-def get(self):<br>
-test_data = Test.query.all()<br>
-data_json = json.loads(<strong>json.dumps</strong>(test_data, cls=JSONEncoder))<br>
-return data_json</li>
+<li>一组公式，和对公式中每个变量的解释，就是一个模型</li>
+<li>先查阅资料，看着资料，用自己的话简述一个模型，再根据题目中的约束条件去一步步修改模型，把题目中的变量带入模型中去</li>
+<li>模型求解
+<ul>
+<li>用自己的话复述算法</li>
+<li>解释清楚算法节点，对应赛题的意义</li>
+</ul>
+</li>
+<li>不同小问
+<ul>
+<li>每小问有相似性的话，可建立一个模型</li>
 </ul>
 </li>
 </ul>
+<ol start="4">
+<li>模型的优缺点与改进方法<br>
+不是必须的，没有改进方法可不写</li>
+<li>参考文献<br>
+格式规范，知网引用</li>
+<li>附录<br>
+可网上复制代码，但必须改代码变量</li>
+</ol>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://nrytiamo.github.io/post/yong-ajax-diao-yong-hou-duan-json-shu-ju/">
+                <a href="https://nrytiamo.github.io/post/shen-du-xue-xi-ji-chu/">
                   <h3 class="post-title">
-                    用Ajax调用后端json数据
+                    深度学习基础
                   </h3>
                 </a>
               </div>
