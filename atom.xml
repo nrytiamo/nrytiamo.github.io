@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nrytiamo.github.io/</id>
     <title>suntblog</title>
-    <updated>2022-03-30T06:56:56.276Z</updated>
+    <updated>2022-04-04T01:37:10.790Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nrytiamo.github.io/"/>
     <link rel="self" href="https://nrytiamo.github.io/atom.xml"/>
@@ -155,6 +155,8 @@ Graph Cuts 基于图论的分割方法<br>
 <li>需要的包有intel make vasp</li>
 <li>intel编译器，可能会报缺少gcc这些，要先安装</li>
 <li>如果发现没有生成文件，生成的可能是隐藏文件 Ctrl＋H＋.  显示隐藏文件</li>
+<li>如果是乌班图20版本，在最后make all 编译时会报错，现要修改配置文件，以及降低gcc版本</li>
+<li><a href="https://www.codenong.com/cs109035672/">修改配置文件</a></li>
 <li><a href="https://mp.weixin.qq.com/s/jC49ML6JxtAhkp4PFmtZ4w">vasp安装参考链接</a></li>
 <li><a href="https://blog.csdn.net/schumacher2016/article/details/89587705">gcc安装参考链接</a></li>
 </ul>
