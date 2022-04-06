@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>1477💕💕 | suntblog</title>
+<title>MATLAB笔记 | suntblog</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,15 +24,11 @@
 
 
 
-    <meta name="description" content="💘💘－－verse1
-想起曾经四年 低头沉默自言，
-没能将你拥有 放弃一场空守，
-回到那年冬天 想法确实疯癫，
-场景重新再现 关系维持三天，
-感慨自己失败 没想你给机会，
-懵懵懂懂恋情 不断成熟发言，
-那时什么都不顾 只想把你来呵护，
-..." />
+    <meta name="description" content="1.函数文件
+
+可在编辑器中创建函数文件，函数文件相当于做好一个工具，以后用到时直接调用
+有固定的格式，例如function[sigma，theta，x，y，final_res]=函数名(参数)
+实时脚本文件mlx(分节符，运行节)与脚本文..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -104,71 +100,121 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">1477💕💕</h2>
-            <div class="post-date">2022-04-04</div>
+            <h2 class="post-title">MATLAB笔记</h2>
+            <div class="post-date">2022-04-06</div>
             
             <div class="post-content" v-pre>
-              <p>💘💘－－verse1<br>
-想起曾经四年 低头沉默自言，<br>
-没能将你拥有 放弃一场空守，<br>
-回到那年冬天 想法确实疯癫，<br>
-场景重新再现 关系维持三天，<br>
-感慨自己失败 没想你给机会，<br>
-懵懵懂懂恋情 不断成熟发言，<br>
-那时什么都不顾 只想把你来呵护，<br>
-心中幻想着未来 默念对你的告白，<br>
-那时总是词不达意 现在变成了美好的回忆<br>
-时间来到那年夏天 我们乘船湖中转圈<br>
-眼泪闪在船口 也是异地开始<br>
-多想时间凝固 感情就此停住<br>
-武宿机场窗口 异地路不好走<br>
-我看过优美的风景<br>
-也听过优美的风铃<br>
-但我还是觉得最美的不及你可爱的背影</p>
-<p>💝💝－－hook<br>
-你本就是天上的星河<br>
-何必去看人间的烟火<br>
-感谢感情的羁绊<br>
-无法克制想你的习惯<br>
-1 Love 4 My Baby<br>
-Bless You Beautiful happy</p>
-<p>💔💔－－verse2<br>
-又是一年七月七 七夕生日又碰在了一起<br>
-用瘦金体去告白 想再次变成小孩<br>
-鲜花蛋糕铺满路 心情难却挡不住<br>
-洒在脸上的笑颜 在我的心上表演<br>
-美好时光总是短暂 好想时间变得缓慢<br>
-问我什么时候见爸妈 我慌乱阿巴阿巴<br>
-答非所问的笑哈哈 表现的像个傻瓜<br>
-再当你问我彩礼几何 才发现自己根本没有资格<br>
-爱情作业从未及格 或许我们未必适合<br>
-聊天不再心平气和 渐渐变得天渊之隔<br>
-再次踏上列车 感情就此切割<br>
-分开总是难受 结束想你的念头<br>
-看看微信三又 就此没有然后<br>
-我的肩膀做你枕头<br>
-让生活不再EMO<br>
-Bridge:<br>
-Lady原谅我这个无赖<br>
-未来路上没有Goodbye<br>
-1 Love 4 My Baby<br>
-Bless You Beautiful happy</p>
-<p>💞💞－－hook<br>
-你本就是天上的星河<br>
-何必去看人间的烟火<br>
-感谢感情的羁绊<br>
-无法克制想你的习惯<br>
-1 Love 4 My Baby<br>
-Bless Your Beautiful happy</p>
+              <h3 id="1函数文件">1.函数文件</h3>
+<ul>
+<li>可在编辑器中创建函数文件，函数文件相当于做好一个工具，以后用到时直接调用</li>
+<li>有固定的格式，例如function[sigma，theta，x，y，final_res]=函数名(参数)</li>
+<li>实时脚本文件mlx(分节符，运行节)与脚本文件m</li>
+</ul>
+<h3 id="2matlab的4种二维图">2.MATLAB的4种二维图</h3>
+<ol>
+<li>线图
+<ul>
+<li>plot函数用来创建x和y值的简单线图</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-matlab">   x = 0:0.05:30; [%从8到38、每隔0.05取一次值]
+   y = sin(x)3
+   plot(x,y) [%若(x,y,'Linewidth',2)可变粗，也可以写多个函数]
+   xlabe1(&quot;横轴标题)
+   y1abe1(&quot;纵轴标题&quot;)
+   grid on [%显示网格]
+   axis([0 20 -1.5 1.5]) [%设置横纵坐标范围]
+</code></pre>
+<ol start="2">
+<li>条形图
+<ul>
+<li>bar函数创建垂直条形图，barh函数创建水平条形图</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-matlab">t= -3:0.5:3
+p = exp(-t.*t)
+bar(t,p)
+barh(t,p)
+</code></pre>
+<ol start="3">
+<li>极坐标图</li>
+</ol>
+<ul>
+<li>polarplot函数用来绘制极坐标图</li>
+</ul>
+<pre><code class="language-matlab">theta= 0:0.01:2*pi;
+[% abs求绝对值或复数的模]
+radi = abs(sin(7*theta).*cos(10*theta))j
+polarplot(theta,radi) [%括号内是弧度和半径]
+</code></pre>
+<ol start="4">
+<li>散点图</li>
+</ol>
+<ul>
+<li>scatter函数用来绘制x和y值的散点图</li>
+</ul>
+<pre><code class="language-matlab">Height =randn(1000,1); [randn生成的数符合正态分布]
+Weight = randn(1000,1);
+scatter(Meight,Weight)
+xlabe1('Height）
+ylabe1('Weight')
+</code></pre>
+<ol start="5">
+<li>三维曲面图</li>
+</ol>
+<ul>
+<li>surf函数可用来做三维曲面图，一般是展示函数z=z(x,y)的图像</li>
+</ul>
+<pre><code class="language-matlab">首先需要用meshgrid创建好空间上(x,y)点
+[x,y] = meshgrid(-2:0.2:2);
+(%z= X.^2+Y.^2)
+Z = X.*exp(-X.^2-Y.^2)j
+surf(X,Y,Z);
+(% colormap设置颜色，可跟winter、summer等)
+</code></pre>
+<ol start="6">
+<li>子图</li>
+</ol>
+<ul>
+<li>使用subplot 函数可以在同一窗口的不同子区域显示多个绘图</li>
+</ul>
+<pre><code class="language-matlab">theta = 0:0.01:2*pi;
+radi = abs(sin(2*theta).*cos(2*theta));
+Height = randn(1000,1)
+Weight = randn(1000,1)
+subplot(2,2,1); surf(X.^2); title('1st');
+subplot(2,2,2); surf(Y.^3); title('2nd')j
+subp1ot(2,2,3); polarplot(theta,radi); title('3rd');
+subplot(2,2,4);scatter(Height,Weight); title('4th')
+</code></pre>
+<ol start="7">
+<li>matlab导入数据</li>
+</ol>
+<ul>
+<li>记得保存工作区文件，ctrl+s</li>
+<li>选择的选项有：列向量，数值矩阵，字符串数组，元胞数组，表</li>
+</ul>
+<ol start="8">
+<li>matlab处理缺失值和异常值
+<ol>
+<li>清理缺失数<br>
+在比赛给的数据，可能会有异常值和缺失数NaN，任务——清理缺失数据</li>
+<li>清理离群数据<br>
+选择清理缺失数后新生成的文件，任务——清理离群数据</li>
+</ol>
+</li>
+</ol>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://nrytiamo.github.io/post/shu-xue-jian-mo-jian-jie/">
+                <a href="https://nrytiamo.github.io/post/1477/">
                   <h3 class="post-title">
-                    数学建模简介
+                    1477💕💕
                   </h3>
                 </a>
               </div>

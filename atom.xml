@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nrytiamo.github.io/</id>
     <title>suntblog</title>
-    <updated>2022-04-04T13:58:29.597Z</updated>
+    <updated>2022-04-06T13:07:08.399Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nrytiamo.github.io/"/>
     <link rel="self" href="https://nrytiamo.github.io/atom.xml"/>
@@ -10,6 +10,217 @@
     <logo>https://nrytiamo.github.io/images/avatar.png</logo>
     <icon>https://nrytiamo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, suntblog</rights>
+    <entry>
+        <title type="html"><![CDATA[matlab算法]]></title>
+        <id>https://nrytiamo.github.io/post/matlab-suan-fa/</id>
+        <link href="https://nrytiamo.github.io/post/matlab-suan-fa/">
+        </link>
+        <updated>2022-04-06T11:45:02.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>线性回归<br>
+有限的条件下，最大的收益<br>
+<img src="https://nrytiamo.github.io//post-images/1649245787587.png" alt="" loading="lazy"><br>
+[s.t.  约束条件的意思] [参数是决策变量] [xy的函数是目标函数] [每个变量是一次方 ]<br>
+典型的赛题：生产安排，投资收益，销售运输，车辆安排</p>
+</li>
+<li>
+<p>利用matlab自带函数，求解线性问题</p>
+<ol>
+<li>模型化为matlab标准型：目标函数最小值，约束条件小于等于或等于</li>
+<li>如果求y的最大值，可以变成求-y的最小值，约束条件同理，也可以通过加负号化解</li>
+<li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">f</th>
+<th style="text-align:center">目标函数的系数列向量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A，b</td>
+<td style="text-align:center">不等式约束条件的变量系数矩阵和常数项矩阵</td>
+</tr>
+<tr>
+<td style="text-align:center">Aeq beq</td>
+<td style="text-align:center">等式约束条件的系数矩阵和常数项矩阵</td>
+</tr>
+<tr>
+<td style="text-align:center">lb ub</td>
+<td style="text-align:center">决策变量的最小取值和最大取值</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>matlab 函数
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">[x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">x</span></span></span></span>, fval <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>]</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">]=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span></span></span> linprog <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>f</mi><mo separator="true">,</mo><mi>A</mi><mo separator="true">,</mo><mi>b</mi><mo separator="true">,</mo><mi>A</mi><mi>e</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">(f, A, b, A e q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span>, beq <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo separator="true">,</mo><mi>l</mi><mi>b</mi><mo separator="true">,</mo><mi>u</mi><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">, l b, u b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">u</span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span></li>
+<li>x返回最优解的变量取值，fval返回目标函数的最优值</li>
+<li>若不存在不等式约束，用”[]“代替A和b，同理也可以代替Aeq beq</li>
+<li>若题目求最大值，求解完成后，记得再将<strong>结果再取负</strong></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>非线性规划</p>
+<ol>
+<li>至少一个变量不是一次方</li>
+<li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">fun</th>
+<th style="text-align:center">单独函数文件里定义的目标函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x0</td>
+<td style="text-align:center">决策变量的初始值。不知道的话随便写个数</td>
+</tr>
+<tr>
+<td style="text-align:center">A, b</td>
+<td style="text-align:center">线性约束的不等式变量系数矩阵和常数项矩阵(都是小于等于≦）</td>
+</tr>
+<tr>
+<td style="text-align:center">Aeq, beq</td>
+<td style="text-align:center">线性约束的等式变量系数矩阵和常数项矩阵</td>
+</tr>
+<tr>
+<td style="text-align:center">Ib, ub</td>
+<td style="text-align:center">决策变量的最小取值和最大取值</td>
+</tr>
+<tr>
+<td style="text-align:center">nonlcon</td>
+<td style="text-align:center">非线性约束，包括不等式和等式</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">[x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">x</span></span></span></span>, fval <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>]</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">]=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span></span></span> fmincon (fun, x0, A, b, Aeq, beq, lb, ub, nonlcon)</li>
+<li>其中目标函数用fun1写出来，nonlcon用fun2写出来，写时要使等式右边全为0，如果是大于等于，就和线性一样变成负号，不等式和等式用两个参数写</li>
+<li>典型赛题：投资规划（最佳投资方案）角度调整  生产安排</li>
+</ol>
+</li>
+<li>
+<p>多目标规划<br>
+需要衡量每个目标的完成情况，并主观上区分多个目标的重要性，使得整体的完成情况尽量好</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MATLAB笔记]]></title>
+        <id>https://nrytiamo.github.io/post/matlab-bi-ji/</id>
+        <link href="https://nrytiamo.github.io/post/matlab-bi-ji/">
+        </link>
+        <updated>2022-04-06T08:43:54.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="1函数文件">1.函数文件</h3>
+<ul>
+<li>可在编辑器中创建函数文件，函数文件相当于做好一个工具，以后用到时直接调用</li>
+<li>有固定的格式，例如function[sigma，theta，x，y，final_res]=函数名(参数)</li>
+<li>实时脚本文件mlx(分节符，运行节)与脚本文件m</li>
+</ul>
+<h3 id="2matlab的4种二维图">2.MATLAB的4种二维图</h3>
+<ol>
+<li>线图
+<ul>
+<li>plot函数用来创建x和y值的简单线图</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-matlab">   x = 0:0.05:30; [%从8到38、每隔0.05取一次值]
+   y = sin(x)3
+   plot(x,y) [%若(x,y,'Linewidth',2)可变粗，也可以写多个函数]
+   xlabe1(&quot;横轴标题)
+   y1abe1(&quot;纵轴标题&quot;)
+   grid on [%显示网格]
+   axis([0 20 -1.5 1.5]) [%设置横纵坐标范围]
+</code></pre>
+<ol start="2">
+<li>条形图
+<ul>
+<li>bar函数创建垂直条形图，barh函数创建水平条形图</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-matlab">t= -3:0.5:3
+p = exp(-t.*t)
+bar(t,p)
+barh(t,p)
+</code></pre>
+<ol start="3">
+<li>极坐标图</li>
+</ol>
+<ul>
+<li>polarplot函数用来绘制极坐标图</li>
+</ul>
+<pre><code class="language-matlab">theta= 0:0.01:2*pi;
+[% abs求绝对值或复数的模]
+radi = abs(sin(7*theta).*cos(10*theta))j
+polarplot(theta,radi) [%括号内是弧度和半径]
+</code></pre>
+<ol start="4">
+<li>散点图</li>
+</ol>
+<ul>
+<li>scatter函数用来绘制x和y值的散点图</li>
+</ul>
+<pre><code class="language-matlab">Height =randn(1000,1); [randn生成的数符合正态分布]
+Weight = randn(1000,1);
+scatter(Meight,Weight)
+xlabe1('Height）
+ylabe1('Weight')
+</code></pre>
+<ol start="5">
+<li>三维曲面图</li>
+</ol>
+<ul>
+<li>surf函数可用来做三维曲面图，一般是展示函数z=z(x,y)的图像</li>
+</ul>
+<pre><code class="language-matlab">首先需要用meshgrid创建好空间上(x,y)点
+[x,y] = meshgrid(-2:0.2:2);
+(%z= X.^2+Y.^2)
+Z = X.*exp(-X.^2-Y.^2)j
+surf(X,Y,Z);
+(% colormap设置颜色，可跟winter、summer等)
+</code></pre>
+<ol start="6">
+<li>子图</li>
+</ol>
+<ul>
+<li>使用subplot 函数可以在同一窗口的不同子区域显示多个绘图</li>
+</ul>
+<pre><code class="language-matlab">theta = 0:0.01:2*pi;
+radi = abs(sin(2*theta).*cos(2*theta));
+Height = randn(1000,1)
+Weight = randn(1000,1)
+subplot(2,2,1); surf(X.^2); title('1st');
+subplot(2,2,2); surf(Y.^3); title('2nd')j
+subp1ot(2,2,3); polarplot(theta,radi); title('3rd');
+subplot(2,2,4);scatter(Height,Weight); title('4th')
+</code></pre>
+<ol start="7">
+<li>matlab导入数据</li>
+</ol>
+<ul>
+<li>记得保存工作区文件，ctrl+s</li>
+<li>选择的选项有：列向量，数值矩阵，字符串数组，元胞数组，表</li>
+</ul>
+<ol start="8">
+<li>matlab处理缺失值和异常值
+<ol>
+<li>清理缺失数<br>
+在比赛给的数据，可能会有异常值和缺失数NaN，任务——清理缺失数据</li>
+<li>清理离群数据<br>
+选择清理缺失数后新生成的文件，任务——清理离群数据</li>
+</ol>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[1477💕💕]]></title>
         <id>https://nrytiamo.github.io/post/1477/</id>
@@ -474,80 +685,6 @@ Graph Cuts 基于图论的分割方法<br>
 </ul>
 </li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[机器学习]]></title>
-        <id>https://nrytiamo.github.io/post/ji-qi-xue-xi/</id>
-        <link href="https://nrytiamo.github.io/post/ji-qi-xue-xi/">
-        </link>
-        <updated>2022-03-17T08:50:40.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="机器学习流程">机器学习流程</h1>
-<ol>
-<li><strong>特征提取</strong><br>
-先找一些特征，利用图像处理知识</li>
-<li><strong>特征选择</strong><br>
-画出直方图，观察差异</li>
-<li><strong>基于特征构建算法</strong><br>
-将特征画在同一直方图上，做归一化，叫特征空间；设计的向量机方法，不同的线决定不同的方法<br>
-要考虑到纬度（三维甚至N维）和标准（区域的划分不同）</li>
-<li><strong>没有免费的午餐</strong><br>
-不对特征空间的先验分布有假设，所有算法的表现都一样 （深度学习算法一般优于传统算法）</li>
-</ol>
-<h1 id="支持向量机-svm">支持向量机 svm</h1>
-<ol>
-<li><strong>线性可分</strong>
-<ul>
-<li>通俗解释：直观解释，存在一条直线（或超平面）将样本集分开</li>
-<li>数学定义：二分类下定义</li>
-</ul>
-</li>
-<li><strong>非线性可分</strong></li>
-<li><strong>向量机最优化问题</strong>
-<ul>
-<li>满足的条件：1. 超平面分开<strong>两个类别</strong> 2.超平面拥有最大的间隔 3.超平面处于间隔中间到所有支持向量距离相等</li>
-<li><strong>优化问题限制条件</strong>：1. 最小化（目标函数二次项）：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">∥</mi><mi mathvariant="bold-italic">ω</mi><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\frac{1}{2}\|\boldsymbol{\omega}\|^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">∥</span><span class="mord"><span class="mord"><span class="mord boldsymbol" style="margin-right:0.03704em;">ω</span></span></span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>      2. 限制条件（一次项） <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="normal">y</mi><mi>i</mi></msub><mo>=</mo><mrow><mo fence="true">(</mo><msup><mi mathvariant="bold-italic">ω</mi><mi>T</mi></msup><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mi>b</mi><mo fence="true">)</mo></mrow><mo>≥</mo><mn>1</mn><mo separator="true">,</mo><mo>(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo>∼</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\mathrm{y}_{i}=\left(\boldsymbol{\omega}^{T} x_{i}+b\right) \geq 1,(i=1 \sim N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord"><span class="mord mathrm" style="margin-right:0.01389em;">y</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20001em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mord"><span class="mord"><span class="mord boldsymbol" style="margin-right:0.03704em;">ω</span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">b</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span></li>
-<li>凸优化问题有唯一解，有高效快速算法，求解凸优化问题，有专门算法包</li>
-<li><strong>线性不可分，向量机优化版本</strong></li>
-<li>最小化: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">∥</mi><mi>ω</mi><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup><mo>+</mo><mi>C</mi><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup><msub><mi>δ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\frac{1}{2}\|\omega\|^{2}+C \sum_{i=1}^{N} \delta_{i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">∥</span><span class="mord mathdefault" style="margin-right:0.03588em;">ω</span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.2809409999999999em;vertical-align:-0.29971000000000003em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.981231em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">∥</mi><mi>ω</mi><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup><mo>+</mo><mi>C</mi><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup><msubsup><mi>δ</mi><mi>i</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\frac{1}{2}\|\omega\|^{2}+C \sum_{i=1}^{N} \delta_{i}^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">∥</span><span class="mord mathdefault" style="margin-right:0.03588em;">ω</span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.2809409999999999em;vertical-align:-0.29971000000000003em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.981231em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.03785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span><br>
-限制条件：<br>
-(1) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>δ</mi><mi>i</mi></msub><mo>≥</mo><mn>0.</mn><mo>(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo>∼</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\delta_{i} \geq 0 .(i=1 \sim N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span><br>
-( 2 ) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mrow><mo fence="true">(</mo><msup><mi>ω</mi><mi>T</mi></msup><msub><mi>X</mi><mi>i</mi></msub><mo>+</mo><mi>b</mi><mo fence="true">)</mo></mrow><mo>≥</mo><mn>1</mn><mo>−</mo><msub><mi>δ</mi><mi>i</mi></msub><mo separator="true">,</mo><mo>(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo>∼</mo><mi>N</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">y_{i}\left(\omega^{T} X_{i}+b\right) \geq 1-\delta_{i},(i=1 \sim N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20001em;vertical-align:-0.35001em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">b</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span><br>
-（3）C指超参数函数</li>
-</ul>
-</li>
-</ol>
-<h1 id="支持向量机扩大可选函数范围">支持向量机——扩大可选函数范围</h1>
-<ol>
-<li>将低维转为高维 ，用线性超平面分</li>
-<li>核函数
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi><mrow><mo fence="true">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>X</mi><mn>2</mn></msub><mo fence="true">)</mo></mrow><mo>=</mo><mi>φ</mi><msup><mrow><mo fence="true">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo fence="true">)</mo></mrow><mi>T</mi></msup><mi>φ</mi><mrow><mo fence="true">(</mo><msub><mi>X</mi><mn>2</mn></msub><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">K\left(X_{1}, X_{2}\right)=\varphi\left(X_{1}\right)^{T} \varphi\left(X_{2}\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.231231em;vertical-align:-0.25em;"></span><span class="mord mathdefault">φ</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.981231em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">φ</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span>  完成对测试样本类别的预测 ，K是核函数</li>
-<li>K满足交换性和半正定性，就可以写成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ψ</mi></mrow><annotation encoding="application/x-tex">\psi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">ψ</span></span></span></span> 内积的形式</li>
-</ul>
-</li>
-<li>原问题与对偶问题<br>
-*</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[系统菜单栏设计]]></title>
-        <id>https://nrytiamo.github.io/post/xi-tong-cai-dan-lan-she-ji/</id>
-        <link href="https://nrytiamo.github.io/post/xi-tong-cai-dan-lan-she-ji/">
-        </link>
-        <updated>2022-03-11T10:27:49.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="登录界面">登录界面</h1>
-<figure data-type="image" tabindex="1"><img src="https://nrytiamo.github.io//post-images/1647000271856.png" alt="登录" loading="lazy"></figure>
-<h1 id="首页">首页</h1>
-<ol>
-<li><strong>顶部菜单栏</strong></li>
-<li><strong>首页卡片</strong><br>
-<img src="https://nrytiamo.github.io//post-images/1647000397561.png" alt="首页" loading="lazy"></li>
-</ol>
-<h1 id="侧边栏">侧边栏</h1>
-<p><strong>左侧是二级菜单栏，中间是主体部分</strong><br>
-<img src="https://nrytiamo.github.io//post-images/1647000305771.png" alt="侧边栏" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
